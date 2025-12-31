@@ -1,0 +1,105 @@
+NOTE: Fallback text file because generating a binary .pptx in this environment may fail.
+This file contains the full slide contents, speaker notes, and image references for the requested presentation "HomecookedExpress_Presentation.pptx".
+
+If you still want an actual .pptx file, tell me and I will attempt to create one and push it (may fail). Otherwise you can use this text to recreate slides locally.
+
+---
+Presentation: Homecooked express
+Format: 16:9
+Fonts suggested: Calibri or Arial
+Images referenced (from repo): frontend/public/header_img.png (header/background), frontend/public/vite.svg (small icon)
+
+Slide 1 (Cover Page):
+Title: Homecooked express
+Submitted to: Md. Maherab Hasan, Lecturer, Department of Computer Science and Engineering
+Submitted by: Ridwan Hossan Fahim, ID: CSE 029 077 21
+Course title: Web Technology, Course Code: CSE 434
+Project Title: Homecooked express
+Includes a compact flowchart of the ordering flow: Home → Browse → Cart → Checkout → Payment → Order Confirmation
+Uses image: frontend/public/header_img.png (placed as background/header)
+Speaker notes: (Included) Brief introduction to project, aim to connect users to home-cooked meals, mention demo and deployment later.
+
+Slide 2: Project Summary
+- Purpose: Connect customers to fresh, home-cooked meals via a responsive web app.
+- Key features: Browse food items; Add to cart & checkout; User authentication & order history; Image uploads for foods.
+- Tech stack: React (Vite) frontend, Node/Express backend, MongoDB, Stripe payments
+Speaker notes: (Included) High-level purpose, target audience, quick mention of responsive design and performance via Vite.
+
+Slide 3: Frontend Structure
+- Built with React + Vite
+- Pages: Home, Cart, MyOrders, PlaceOrder, Verify
+- Components: Header, Navbar, FoodDisplay, FoodItem, LoginPopup, Footer, AppDownload, ExploreMenu
+- Context: Global state (cart, auth)
+Speaker notes: (Included) Explain component breakdown, state management via context, and where image assets are stored (frontend/public).
+
+Slide 4: Backend Structure
+- Node.js + Express API server (port 4000)
+- API endpoints: /api/food, /api/user, /api/cart, /api/order
+- Static files: /images -> uploads
+- Middleware: JSON parsing, CORS, JWT auth, multer for uploads
+Speaker notes: (Included) Explain request lifecycle, multer usage for image uploads, and JWT verification middleware.
+
+Slide 5: Data & External Services
+- Database: MongoDB Atlas (mongoose)
+- Authentication: bcrypt + JWT
+- Payments: Stripe
+- File uploads: multer stored under backend/uploads
+Speaker notes: (Included) Talk about secure storage of secrets (env vars), connection strings, and using Atlas for remote DB.
+
+Slide 6: System Architecture Diagram
+- Block diagram: Client (Browser) ↔ Frontend (React) → Backend (Express) → MongoDB; Backend → Stripe; Backend → Uploads
+- Note about HTTPS
+Speaker notes: (Included) Emphasize HTTPS for Stripe and secure JWT handling; mention CORS allowed origins.
+
+Slide 7: High-level User Flow
+- Entry → Browse → Item → Cart → Checkout → Confirmation → MyOrders
+Speaker notes: (Included) Walk through typical user journey and where state is persisted (localStorage/context, server DB for orders).
+
+Slide 8: Authentication Flow
+- Login & Register flows with /api/user endpoints; JWT returned and stored in context/localStorage
+- Compact flowchart included
+Speaker notes: (Included) Explain token lifecycle, refresh/re-login, and protected routes that check JWT onsite.
+
+Slide 9: Ordering Flow
+- Add to Cart → View Cart → Checkout → Create Stripe session → Payment Success → Create Order in DB → Confirmation
+Speaker notes: (Included) Outline Stripe session creation flow, webhook vs direct confirmation approach, and order creation timing.
+
+Slide 10: Backend Order Processing
+- Validate cart, create/verify Stripe payment, create order doc (status pending/paid), save to DB
+Speaker notes: (Included) Include notes on idempotency, handling webhook events, and updating order status on payment events.
+
+Slide 11: Data Model Snapshot
+- User model fields: (inferred) name, email, passwordHash, orders[], address, phone
+- Food model fields: name, description, price, imagePath, category, createdAt
+- Cart model fields: userId, items[{foodId, qty, price}], subtotal, createdAt
+- Order model fields: userId, items, total, paymentStatus, stripeSessionId, createdAt, status
+Speaker notes: (Included) Clarify relationships and indexing suggestions (e.g., index userId on orders, TTL for carts if desired).
+
+Slide 12: Error & Edge Cases
+- Payment failure handling, token expiry, image upload failure, invalid cart items
+Speaker notes: (Included) Describe retry strategies, user-facing messages, validations, and logging for errors.
+
+Slide 13: Demo, Deployment & Next Steps
+- Demo plan
+- Deployment checklist: env vars, HTTPS, CORS, set Stripe webhook endpoints, ensure proper file storage permissions
+- Possible improvements: order search, notifications, admin dashboard, CI/CD
+Speaker notes: (Included) Wrap-up and call for questions; show live demo link or steps to run locally.
+
+Embedded images referenced where available:
+- frontend/public/header_img.png (used as cover header/background)
+- frontend/public/vite.svg (small icons where needed)
+
+Design notes for recreation:
+- Slide size: 16:9
+- Clean readable fonts: Calibri or Arial
+- Use images from repository via relative paths when rebuilding the .pptx locally
+- Include speaker notes per slide
+- Cover slide: compact flowchart graphic (Home → Browse → Cart → Checkout → Payment → Order Confirmation)
+- Slides for Authentication Flow and Ordering Flow should include simplified flowcharts.
+
+End of fallback file.
+
+Generated on: 2025-12-31 23:22:09 UTC (as provided by user)
+Generated by: Assistant (could not reliably produce binary .pptx in this environment)
+
+If you want me to also add a .pptx attempt or push both .pptx and this text, tell me and I'll attempt it.
